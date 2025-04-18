@@ -43,14 +43,15 @@ nodecorn.schedule("0 0 0 1 * *",async()=>{
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend URL
-  credentials: true, // Allow cookies to be sent
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true,
 }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser())
 
-const MONGO_URL = process.env.MONGO_URL ;
+
 
 app.get("/api/check-auth", (req, res) => {
   const { token } = req.cookies;
@@ -85,15 +86,21 @@ app.use("/api/dashboard", dashboardBundle);
 
 app.use(errorMiddleware);
 
-const PORT = process.env.MONGO_DB_PORT || 8000;
 
-mongoose.connect(MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  tls: true,
-  tlsAllowInvalidCertificates: false // Set to true only for testing
-}).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port http://localhost:${PORT}`);
+
+console.log("MongoDB URL:", process.env.MONGO_URL);
+
+mongoose.connect(process.env.MONGO_URL, {
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+})
+.then(() => {
+  console.log("MongoDB connected successfully");
+  app.listen(process.env.PORT || 8000, () => {
+    console.log(`Server running on port ${process.env.PORT || 8000}`);
   });
+})
+.catch(err => {
+  console.error("MongoDB connection error:", err);
+  process.exit(1);
 });
