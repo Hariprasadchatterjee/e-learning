@@ -54,7 +54,7 @@ const initialState: AdminState = {
 export const fetchAllUsers = createAsyncThunk(
   'admin/fetchAllUsers',
   async () => {
-    const res = await fetch(`http://localhost:3000/api/auth/admin/getalluser`, {
+    const res = await fetch(`http://localhost:10000/api/auth/admin/getalluser`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -73,7 +73,7 @@ export const fetchAllUsers = createAsyncThunk(
 export const changeUserRole = createAsyncThunk(
   'admin/changeUserRole',
   async ({id}:{id:string}) => {
-    const res = await fetch(`http://localhost:3000/api/auth/admin/user/${id}`, {
+    const res = await fetch(`http://localhost:10000/api/auth/admin/user/${id}`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {
@@ -92,7 +92,7 @@ export const changeUserRole = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   'admin/deleteUser',
   async ({id}:{id:string}) => {
-    const res = await fetch(`http://localhost:3000/api/auth/admin/deleteuser/${id}`, {
+    const res = await fetch(`http://localhost:10000/api/auth/admin/deleteuser/${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -111,7 +111,7 @@ export const deleteUser = createAsyncThunk(
 export const dashboardStatus = createAsyncThunk(
   'admin/dashboardStatus',
   async () => {
-    const res = await fetch(`http://localhost:3000/api/dashboard/dashboardstats`, {
+    const res = await fetch(`http://localhost:10000/api/dashboard/dashboardstats`, {
       method: 'GET',
       credentials: 'include',
       headers: {

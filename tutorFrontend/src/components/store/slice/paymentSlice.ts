@@ -19,7 +19,7 @@ const initialState: SubscriptionState = {
 export const fetchSubscriptionId = createAsyncThunk(
   'subscription/fetchSubscriptionId',
   async () => {
-    const res = await fetch(`http://localhost:3000/api/payment/subscribe`, {
+    const res = await fetch(`http://localhost:10000/api/payment/subscribe`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -38,7 +38,7 @@ export const fetchSubscriptionId = createAsyncThunk(
 export const cancelSubscription = createAsyncThunk(
   'subscription/cancelSubscription',
   async () => {
-    const res = await fetch(`http://localhost:3000/api/payment/subscribe/cancel`, {
+    const res = await fetch(`http://localhost:10000/api/payment/subscribe/cancel`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {

@@ -49,7 +49,7 @@ const initialState: UserState = {
 export const fetchLogin = createAsyncThunk(
   'auth/fetchLogin',
   async ({ email, password }: { email: string; password: string }) => {
-    const res = await fetch('http://localhost:3000/api/auth/login', {
+    const res = await fetch('http://localhost:10000/api/auth/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -69,7 +69,7 @@ export const fetchLogin = createAsyncThunk(
 export const fetchRegister = createAsyncThunk(
   'auth/fetchRegister',
   async ({ formData }: { formData: FormData }) => {
-    const res = await fetch('http://localhost:3000/api/auth/register', {
+    const res = await fetch('http://localhost:10000/api/auth/register', {
       method: 'POST',
       credentials: 'include',
       body: formData,
@@ -86,7 +86,7 @@ export const fetchRegister = createAsyncThunk(
 export const fetchLogout = createAsyncThunk(
   'auth/fetchLogout',
   async () => {
-    const res = await fetch('http://localhost:3000/api/auth/logout', {
+    const res = await fetch('http://localhost:10000/api/auth/logout', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -105,7 +105,7 @@ export const fetchLogout = createAsyncThunk(
 export const fetchProfile = createAsyncThunk(
   'auth/fetchProfile',
   async () => {
-    const res = await fetch('http://localhost:3000/api/auth/me', {
+    const res = await fetch('http://localhost:10000/api/auth/me', {
       method: 'GET',
       credentials: 'include',
     });
@@ -121,7 +121,7 @@ export const fetchProfile = createAsyncThunk(
 export const updateProfilePicture = createAsyncThunk(
   'auth/updateProfilePicture',
   async ({ formData }: { formData: FormData }) => {
-    const res = await fetch('http://localhost:3000/api/auth/upProPic', {
+    const res = await fetch('http://localhost:10000/api/auth/upProPic', {
       method: 'PUT',
       credentials: 'include',
       body: formData,
@@ -138,7 +138,7 @@ export const updateProfilePicture = createAsyncThunk(
 export const updateProfile = createAsyncThunk(
   'auth/updateProfile',
   async ({ name, email }: { name: string; email: string }) => {
-    const res = await fetch('http://localhost:3000/api/auth/updateprofile', {
+    const res = await fetch('http://localhost:10000/api/auth/updateprofile', {
       method: 'PUT',
       credentials: 'include',
       headers: {
@@ -158,7 +158,7 @@ export const updateProfile = createAsyncThunk(
 export const updatePassword = createAsyncThunk(
   'auth/updatePassword',
   async ({ oldpassword, newpassword }: { oldpassword: string; newpassword: string }) => {
-    const res = await fetch('http://localhost:3000/api/auth/changepassword', {
+    const res = await fetch('http://localhost:10000/api/auth/changepassword', {
       method: 'PUT',
       credentials: 'include',
       headers: {
@@ -178,7 +178,7 @@ export const updatePassword = createAsyncThunk(
 export const addToPlaylist = createAsyncThunk(
   'course/addToPlaylist',
   async ({ courseId }: { courseId: string }) => {
-    const res = await fetch(`http://localhost:3000/api/auth/addtoplaylist?courseId=${courseId}`, {
+    const res = await fetch(`http://localhost:10000/api/auth/addtoplaylist?courseId=${courseId}`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -197,7 +197,7 @@ export const addToPlaylist = createAsyncThunk(
 export const removeFromPlaylist = createAsyncThunk(
   'course/removeFromPlaylist',
   async ({ removeId }: { removeId: string }) => {
-    const res = await fetch(`http://localhost:3000/api/auth/removefromplaylist?courseId=${removeId}`, {
+    const res = await fetch(`http://localhost:10000/api/auth/removefromplaylist?courseId=${removeId}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {

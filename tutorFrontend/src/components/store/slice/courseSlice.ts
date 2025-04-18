@@ -36,7 +36,7 @@ const initialState: CourseState = {
 export const getadmincourse = createAsyncThunk(
   'course/getadmincourse',
   async () => {
-    const res = await fetch(`http://localhost:3000/api/course/getadmincourse`, {
+    const res = await fetch(`http://localhost:10000/api/course/getadmincourse`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -55,7 +55,7 @@ export const getadmincourse = createAsyncThunk(
 export const fetchCourses = createAsyncThunk(
   'course/fetchCourses',
   async ({title,category}:{title:string;category:string}) => {
-    const res = await fetch(`http://localhost:3000/api/course/courses?title=${title}&category=${category}`, {
+    const res = await fetch(`http://localhost:10000/api/course/courses?title=${title}&category=${category}`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -74,7 +74,7 @@ export const fetchCourses = createAsyncThunk(
 export const createCourse = createAsyncThunk(
   'course/createCourse',
   async ({formdata}:{formdata:FormData}) => {
-    const res = await fetch(`http://localhost:3000/api/course/courses`, {
+    const res = await fetch(`http://localhost:10000/api/course/courses`, {
       method: 'POST',
       credentials: 'include',
       body: formdata,
@@ -91,7 +91,7 @@ export const createCourse = createAsyncThunk(
 export const deletecourse = createAsyncThunk(
   'course/deletecourse',
   async ({id}:{id:string}) => {
-    const res = await fetch(`http://localhost:3000/api/course/deletecourse/${id}`, {
+    const res = await fetch(`http://localhost:10000/api/course/deletecourse/${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -110,7 +110,7 @@ export const deletecourse = createAsyncThunk(
 export const fetchCourseLectured = createAsyncThunk(
   'course/fetchCourseLectured',
   async ({id}:{id:string}): Promise<CourseLecture[]> => {
-    const res = await fetch(`http://localhost:3000/api/course/courselectures/${id}`, {
+    const res = await fetch(`http://localhost:10000/api/course/courselectures/${id}`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -129,7 +129,7 @@ export const fetchCourseLectured = createAsyncThunk(
 export const addCourseLectured = createAsyncThunk(
   'course/addCourseLectured',
   async ({formdata,id}:{formdata:FormData,id:string}) => {
-    const res = await fetch(`http://localhost:3000/api/course/courselectures/${id}`, {
+    const res = await fetch(`http://localhost:10000/api/course/courselectures/${id}`, {
       method: 'POST',
       credentials: 'include',
       body: formdata,
@@ -149,7 +149,7 @@ export const deleteCourseLectured = createAsyncThunk(
     if (!courseId || !lectureId) {
       throw new Error("Missing courseId or lectureId");
     }
-    const url = new URL("http://localhost:3000/api/course/deleteLecture");
+    const url = new URL("http://localhost:10000/api/course/deleteLecture");
     url.searchParams.append("courseId", courseId);
     url.searchParams.append("lectureId", lectureId);
 
