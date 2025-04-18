@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "main": "app.js",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "scripts": {
-    "start": "node --watch app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd tutorBackend"
   },
   "keywords": [],
   "author": "",

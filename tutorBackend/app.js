@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser())
 
-const MONGO_URL = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.9gu54.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
+const MONGO_URL = process.env.MONGO_URL ;
 
 app.get("/api/check-auth", (req, res) => {
   const { token } = req.cookies;
@@ -87,7 +87,12 @@ app.use(errorMiddleware);
 
 const PORT = process.env.MONGO_DB_PORT || 8000;
 
-mongoose.connect(MONGO_URL).then(() => {
+mongoose.connect(MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true,
+  tlsAllowInvalidCertificates: false // Set to true only for testing
+}).then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port http://localhost:${PORT}`);
   });
