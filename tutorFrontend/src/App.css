@@ -1,0 +1,50 @@
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  background-image: url("\src\assets\images\lern.png");
+}
+.service{
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+.service_text{
+  font-size: 2rem;
+}
+.icon{
+  font-size: 2rem;
+  background-color: rgb(231, 231, 231);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: inline-block;
+  color: red;
+}
+.icon2{
+color: rgb(233, 72, 99);
+}
+.icon3{
+color: rgb(107, 72, 233);
+}
+.icon4{
+color: rgb(5, 89, 138);
+}
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0; /* Light gray background */
+  border-radius: 5px; /* Rounded corners */
+  overflow: hidden; /* Ensures the inner bar stays within the container */
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50; /* Green progress color */
+  border-radius: 5px; /* Rounded corners */
+  transition: width 0.3s ease; /* Smooth transition for progress changes */
+}
+
