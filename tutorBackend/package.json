@@ -8,7 +8,7 @@
     "npm": "9.x"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node --watch app.js",
     "dev": "nodemon app.js",
     "test": "jest",
     "build": "echo \"No build needed for Node.js\"",

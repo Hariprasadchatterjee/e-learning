@@ -177,7 +177,7 @@ const Header: React.FC<LoginDtl> = ({ isLogedIn, userRole }) => {
   const handleLogout = async () => {
     const result = await dispatch(fetchLogout());
     if (fetchLogout.fulfilled.match(result)) {
-      navigate("/login");
+      navigate("/");
       setIsDrawerOpen(false);
     }
   };

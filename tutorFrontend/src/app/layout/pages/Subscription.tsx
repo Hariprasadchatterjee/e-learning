@@ -21,7 +21,7 @@ const Subscription = () => {
   // Function to handle subscription purchase
   const handleSubscribe = async () => {
     // Logic to handle subscription purchase
-    const {data:{ api_key }} = await axios.get(`http://localhost:3000/api/payment/getrazorpaykey`);
+    const {data:{ api_key }} = await axios.get(`http://localhost:10000/api/payment/getrazorpaykey`);
     console.log("api_key",api_key);
     setKey(api_key);
     dispatch(fetchSubscriptionId())
@@ -41,7 +41,7 @@ const Subscription = () => {
           description: "Test Transaction",
           image: user?.avatar,
           subscription_id:subscriptionId,
-          callback_url:`http://localhost:3000/api/payment/paymentverification`,
+          callback_url:`http://localhost:10000/api/payment/paymentverification`,
           prefill:{
             name:user?.name,
             email:user?.email,

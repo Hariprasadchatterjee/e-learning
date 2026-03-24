@@ -35,7 +35,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Root />,
+      element: <Root/>,
       errorElement: <NotFound />,
       children: [
         { path: '/', element: <Home /> },

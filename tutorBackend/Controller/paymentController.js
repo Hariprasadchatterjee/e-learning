@@ -93,6 +93,7 @@ export const paymentverification = asyncError(async(req,res)=>{
       razorpay_payment_id,
       razorpay_subscription_id,
       razorpay_signature,
+      user: req.user._id
     }], { session });
 
     user.subscription.status = "active";
